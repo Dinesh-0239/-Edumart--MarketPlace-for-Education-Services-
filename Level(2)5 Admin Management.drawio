@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Page-1" id="ZuYgFiN9vw0V_m6HvpnN">
+    <mxGraphModel dx="1050" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-1" value="&lt;font face=&quot;Times New Roman&quot; style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Admin Management&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="380" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-2" target="dYSoIdwNrL5XDa60ccOj-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="370" />
+              <mxPoint x="635" y="370" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-2" target="dYSoIdwNrL5XDa60ccOj-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-2" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 14px;&quot;&gt;Approve/Reject Service&lt;/b&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="270" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-3" target="dYSoIdwNrL5XDa60ccOj-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="575" y="260" />
+              <mxPoint x="208" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-3" target="dYSoIdwNrL5XDa60ccOj-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="315" />
+              <mxPoint x="770" y="480" />
+              <mxPoint x="373" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-3" value="&lt;font face=&quot;Times New Roman&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Dispute Resolution Management&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="270" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-4" target="dYSoIdwNrL5XDa60ccOj-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-4" target="dYSoIdwNrL5XDa60ccOj-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="175" y="250" />
+              <mxPoint x="635" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-4" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 14px;&quot;&gt;Django Admin&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="110" y="295" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-6" value="&lt;b style=&quot;font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 14px;&quot;&gt;Service Providers or Clients&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="405" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-7" value="" style="shape=partialRectangle;whiteSpace=wrap;html=1;top=0;bottom=0;fillColor=none;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="615" y="357.5" width="40" height="135" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-8" value="&lt;b style=&quot;forced-color-adjust: none; color: rgb(0, 0, 0); font-family: &amp;quot;Times New Roman&amp;quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;Service Database&lt;/b&gt;" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="410" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.704;entryY=0.924;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-7" target="dYSoIdwNrL5XDa60ccOj-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.667;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-6" target="dYSoIdwNrL5XDa60ccOj-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="405" y="470" />
+              <mxPoint x="740" y="470" />
+              <mxPoint x="740" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dYSoIdwNrL5XDa60ccOj-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.059;entryY=0.778;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dYSoIdwNrL5XDa60ccOj-1" target="dYSoIdwNrL5XDa60ccOj-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="175" y="360" />
+              <mxPoint x="330" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
