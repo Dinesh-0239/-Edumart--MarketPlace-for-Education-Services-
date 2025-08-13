@@ -1,0 +1,10 @@
+<div class="services-section">
+    <h4>Your Confirmed Bookings</h4>
+    <div class="service-list">
+        {% for booking in client_bookings %}
+            {% include 'partials/service_card.html' with booking=booking %}
+        {% empty %}
+            <p class="text-muted">No confirmed bookings yet.</p>
+        {% endfor %}
+    </div>
+</div>

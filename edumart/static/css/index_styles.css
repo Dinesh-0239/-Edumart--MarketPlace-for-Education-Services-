@@ -1,0 +1,278 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fixed Navbar */
+.navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+/* Translucent Effect on Scroll */
+.navbar.navbar-scroll {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly translucent */
+    backdrop-filter: blur(10px); /* Blur effect */
+}
+
+/* Navbar Brand Text Color */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #007bff !important; /* Blue color for EduBazar */
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* Centered Text in Navbar */
+.navbar p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-style: italic;
+}
+
+/* Carousel Section */
+.carousel {
+    position: relative;
+    margin-bottom: 50px;
+    padding-top: 70px; /* Add padding to account for the fixed navbar */
+}
+
+.carousel-img {
+    width: 100%;
+    height: 80vh; /* Increased height (from 70vh to 80vh) */
+    object-fit: cover; /* Ensures the image covers the entire area */
+}
+
+.fixed-overlay {
+    position: absolute;
+    top: 60%; /* Move the overlay down */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.6);
+    width: 80%;
+    max-width: 800px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.fixed-overlay h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.fixed-overlay p {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Featured Section */
+.featured-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.featured-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 15px;
+    color: #28a745;
+}
+
+.feature-icon-small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #28a745, #218838);
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-icon-small:hover {
+    transform: scale(1.1);
+}
+
+.feature-icon-small img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Popular Services */
+.popular-services {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.popular-services h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 15px;
+    color: #28a745;
+}
+
+.card-cover {
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card-cover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-cover h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.card-cover p {
+    font-size: 1.2rem;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.how-it-works h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 15px;
+    color: #28a745;
+}
+
+.step-box {
+    text-align: center;
+    padding: 30px;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.step-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.step-box i {
+    font-size: 2.5rem;
+    color: #28a745;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.step-box:hover i {
+    color: #218838;
+}
+
+.step-box h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.step-box p {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #fff;
+    padding: 10px 0; /* Reduced padding */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 50px; /* Fixed height */
+    display: flex;
+    align-items: center; /* Center content vertically */
+}
+
+.footer .container-fluid {
+    display: flex;
+    justify-content: space-between; /* Space between left and right content */
+    align-items: center; /* Center vertically */
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.footer span {
+    font-size: 0.9rem; /* Smaller font size */
+    color: #6c757d; /* Gray text color */
+}
+
+.footer ul {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.footer img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    height: 20px; /* Smaller social icons */
+    width: 20px;
+}
+
+.footer img:hover {
+    filter: grayscale(0%);
+}

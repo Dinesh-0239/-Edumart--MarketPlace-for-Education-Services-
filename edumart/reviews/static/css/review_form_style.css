@@ -1,0 +1,162 @@
+/* 🎨 Main Container */
+.container {
+    max-width: 650px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ⭐ Heading Styling */
+h2 {
+    color: #0078E8; /* Matches theme */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 📌 Service & Provider Card */
+.card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.card h5, .card p {
+    margin-bottom: 5px;
+}
+
+/* 📷 Service & Provider Images */
+.service-img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.provider-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0078E8;
+}
+
+/* ⭐ Star Rating Styling */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: start;
+    font-size: 2.2rem;
+    gap: 5px;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+    color: #bbb;
+    transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+/* 🟡 Filled stars when selected */
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #FFD700; /* Gold */
+    transform: scale(1.1);
+}
+
+/* ✨ Glow effect */
+.rating input:checked ~ label {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+/* 🌟 Hover effect */
+.rating label:hover {
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* 📌 Form Fields */
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+textarea {
+    border-radius: 5px;
+    resize: none;
+    transition: all 0.2s;
+}
+
+textarea:focus {
+    border-color: #0078E8;
+    box-shadow: 0 0 5px rgba(0, 120, 232, 0.5);
+}
+
+/* 🎨 Buttons (Matches "Your Services" section) */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-primary, .btn-secondary {
+    width: 160px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 10px 0;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ✅ Update Button */
+.btn-primary {
+    background: linear-gradient(135deg, #0078E8 0%, #005bbf 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #005bbf 0%, #0047a3 100%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 120, 232, 0.3);
+}
+
+/* ❌ Cancel Button */
+.btn-secondary {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    color: #fff;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #5a6268 0%, #484e53 100%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(108, 117, 125, 0.3);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .rating {
+        font-size: 1.8rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}

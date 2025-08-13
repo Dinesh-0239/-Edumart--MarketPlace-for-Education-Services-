@@ -1,0 +1,58 @@
+{% extends "home_base.html" %}
+{% load static %}
+{% block title %} Add Review | {{ service.title }}{% endblock %}
+{% block style %} 
+<link rel="stylesheet" href="{% static 'css/review_form_style.css' %}"> 
+{% endblock %}
+{% block content %}
+<br><br>
+<div class="container mt-4">
+    <h2 class="page-title text-center">📝 Add Your Review</h2> <!-- Centered title with icon -->
+
+    <!-- 📌 Service & Provider Details -->
+    <div class="card p-3 mb-4 service-details">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                {% if service.image %}
+                    <img src="{{ service.image.url }}" alt="Service Image" class="img-fluid rounded service-img shadow">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <h5 class="service-title">{{ service.title }}</h5>
+                <p><strong>Provider:</strong> {{ service.provider.username }}</p>
+                <p><strong>Category:</strong> {{ service.category }}</p>
+                <p><strong>Price:</strong> <span class="price">₹{{ service.price }}</span></p>
+                <p><strong>Description:</strong> {{ service.description }}</p>
+                <p><strong>Created On:</strong> {{ service.created_at|date:"M d, Y" }}</p>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST" class="review-form">
+        {% csrf_token %}
+
+        <!-- ⭐ Rating Selection with Star Icons -->
+        <div class="mb-3">
+            <label class="form-label"><strong>Rating</strong></label>
+            <div class="rating">
+                {% for i in "54321"|make_list %}
+                    <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" required>
+                    <label for="star{{ i }}" title="{{ i }} stars">★</label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 📝 Comment Field -->
+        <div class="mb-3">
+            <label for="comment" class="form-label"><strong>Comment</strong></label>
+            <textarea name="comment" id="comment" class="form-control" rows="4" required></textarea>
+        </div>
+
+        <!-- ✅ Submit & Cancel Buttons -->
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary">✅ Submit Review</button>
+            <a href="{% url 'profile' %}" class="btn btn-secondary">❌ Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "home_base.html" %}
+{% load static %}
+
+{% block title %}Profile | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/profile_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <div class="main-content">
+        {% if user.is_authenticated %}
+            <!-- User Profile Section -->
+            {% include 'partials/profile_section.html' %}
+
+            {% if user.is_service_provider %}
+                {% include 'partials/booking_requests.html' %}
+                {% include 'partials/booked_services_provider.html' %}
+                {% include 'partials/completed_services_provider.html' %}
+                {% include 'partials/your_services.html' %}
+                {% include 'partials/reviews_provider.html' %}
+            {% else %}
+                {% include 'partials/your_bookings.html' %}
+                {% include 'partials/booked_services_client.html' %}
+                {% include 'partials/completed_services_client.html' %}
+                {% include 'partials/reviews_client.html' %}
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'script/profile_script.js' %}" defer></script>
+{% endblock %}

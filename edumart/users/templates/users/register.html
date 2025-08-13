@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Register | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'users/css/register_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form method="POST" action="{% url 'register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Branding - Logo & Edumart Name -->
+        <div class="brand-container">
+            <a href="{% url 'index' %}" class="logo-button">
+                <img src="{% static 'appicon.ico' %}" alt="EduMart Logo">
+            </a>
+            <h1>EduMart</h1>
+        </div>
+
+        <h2 class="text-center">Please Register Yourself</h2>
+
+        <!-- Display Non-Field Errors -->
+        {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Email and Username Fields -->
+        <div class="form-group">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                <label for="username">Username</label>
+            </div>
+        </div>
+
+        <!-- Password and Confirm Password Fields -->
+        <div class="form-group">
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password1" id="password1" placeholder="Password" required>
+                <label for="password1">Password</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password2" id="password2" placeholder="Confirm Password" required>
+                <label for="password2">Confirm Password</label>
+            </div>
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="form-group profile-picture-container">
+            <label for="profile_picture">Profile Picture</label>
+            <input type="file" class="form-control" name="profile_picture" id="profile_picture">
+        </div>
+
+        <!-- Bio Input -->
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <textarea class="form-control" name="bio" id="bio" placeholder="Bio"></textarea>
+                <label for="bio">Bio</label>
+            </div>
+        </div>
+
+        <!-- Checkbox for Service Provider -->
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" name="is_service_provider" id="is_service_provider">
+            <label class="form-check-label" for="is_service_provider">I am a Service Provider</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary w-100" type="submit">Register</button>
+
+        <!-- Login Link -->
+        <div class="login-link mt-3">
+            <a href="{% url 'login' %}">Already have an account? Login</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

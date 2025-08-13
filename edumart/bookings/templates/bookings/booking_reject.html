@@ -1,0 +1,19 @@
+{% extends "home_base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm p-4 bg-light">
+        <h2 class="mb-3 text-danger">Reject Booking</h2>
+        <p class="mb-4">Are you sure you want to reject booking for 
+            <strong>"{{ booking.service.title }}"</strong> on 
+            <strong>{{ booking.date }}</strong> at 
+            <strong>{{ booking.time }}</strong>?</p>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Confirm Rejection</button>
+            <a href="{% url 'profile' %}" class="btn btn-secondary">Go Back</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "home_base.html" %}
+{% load static %}
+
+{% block title %}{{ service.id|default:"Create" }} Service | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/service_form_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="form-title d-flex align-items-center">
+        <img src="{% static 'appicon.ico' %}" alt="EduMart Icon" class="form-icon me-2">
+        {% if service.id %}Update{% else %}Create{% endif %} Service
+    </h2>
+
+    <form method="POST" enctype="multipart/form-data" class="shadow p-4 bg-white">
+        {% csrf_token %}
+        
+        <!-- Title -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Service Title</label>
+            <input type="text" id="title" name="title" class="form-control" required value="{{ service.title|default:'' }}">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" name="description" class="form-control" rows="4" required>{{ service.description|default:'' }}</textarea>
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select id="category" name="category" class="form-control" required onchange="toggleOtherCategory()">
+                {% with category_keys=category_choices.keys %}
+                    {% for key, value in category_choices %}
+                        <option value="{{ key }}" {% if service.category == key %}selected{% endif %}>{{ value }}</option>
+                    {% endfor %}
+                {% endwith %}
+            </select>
+        </div>
+
+        <!-- Other Category (Hidden by Default, Visible if "Other" is Selected) -->
+        <div class="mb-3" id="other-category-div" 
+            {% if service.category in category_choices.keys %}style="display: none;"{% endif %}>
+            <label for="other_category" class="form-label">Enter Custom Category</label>
+            <input type="text" id="other_category" name="other_category" class="form-control"
+                   value="{% if service.category not in category_choices.keys %}{{ service.category }}{% endif %}">
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+            <label for="price" class="form-label">Price (INR ₹)</label>
+            <input type="number" id="price" name="price" class="form-control" required min="0" value="{{ service.price|default:'' }}">
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-3">
+            <label class="form-label">Service Image</label>
+            {% if service.image %}
+                <div>
+                    <img src="{{ service.image.url }}" alt="Service Image" width="150" class="mb-2">
+                </div>
+            {% endif %}
+            <input type="file" name="image" class="form-control">
+        </div>
+
+        <!-- Availability -->
+        <div class="form-check mb-3">
+            <input type="checkbox" id="available" name="available" class="form-check-input" {% if service.available %}checked{% endif %}>
+            <label for="available" class="form-check-label">Available</label>
+        </div>
+
+        <!-- Submit and Cancel Buttons -->
+        <button type="submit" class="btn btn-primary">{% if service.id %}Update{% else %}Create{% endif %} Service</button>
+        <a href="{% url 'profile' %}" class="btn btn-dark">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/service_form_script.js' %}"></script>
+{% endblock %}

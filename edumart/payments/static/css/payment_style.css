@@ -1,0 +1,162 @@
+/* General Page Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Poppins', sans-serif; /* Professional font */
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px; /* Increased width */
+    padding: 12px;
+}
+
+/* Payment Card Styling */
+.card {
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12); /* Softer shadow */
+    overflow: hidden;
+    background-color: #ffffff;
+    padding: 8px; /* Reduced padding to decrease height */
+    border: none;
+}
+
+/* Card Header */
+.card-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    padding: 12px;
+    text-align: center;
+    background-color: #0078E8;
+    color: #ffffff;
+    border-bottom: 3px solid #005bbf;
+}
+
+/* Alert Box */
+.alert {
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Test Mode Cards */
+.card-header.bg-success,
+.card-header.bg-danger {
+    font-size: 1rem;
+    text-align: center;
+    padding: 6px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+/* Booking Details */
+.booking-details h4 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0078E8;
+}
+
+/* Booking Details Table */
+.table {
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.table th {
+    width: 40%;
+    text-align: left;
+    font-weight: 600;
+    color: #0078E8;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #ddd;
+}
+
+.table td {
+    width: 60%;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #0078E8;
+    padding: 10px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Payment Buttons - Side by Side */
+.text-center {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between; /* Ensures buttons are side by side */
+    gap: 12px;
+    width: 100%;
+}
+
+/* Button Styling - Half Width */
+.btn-lg {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px; /* More rounded */
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    width: 48%; /* Each button takes half of the row */
+    max-width: 450px; /* Prevents excessive stretching */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* Softer shadow */
+}
+
+/* Primary Button (Pay Now - Blue) */
+.btn-primary {
+    background-color: #0078E8;
+    border: 2px solid #0078E8;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #005bbf; /* Slightly darker blue */
+}
+
+/* Secondary Button (Cancel - Red) */
+.btn-secondary {
+    background-color: #dc3545;
+    border: 2px solid #dc3545;
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-secondary:hover {
+    background-color: #bb2d3b; /* Slightly darker red */
+}
+
+/* Responsive Styling */
+@media (max-width: 992px) {
+    .container {
+        max-width: 96%;
+    }
+
+    .table th,
+    .table td {
+        text-align: left;
+        display: block;
+        width: 100%;
+    }
+
+    .text-center {
+        flex-direction: column; /* Stack buttons on smaller screens */
+        gap: 8px;
+    }
+
+    .btn-lg {
+        width: 100%; /* Full width when stacked */
+    }
+}

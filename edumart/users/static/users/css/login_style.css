@@ -1,0 +1,10 @@
+@import url("base_style.css");
+
+/* Remember Me Checkbox - Left Aligned */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-start;
+    text-align: left;
+}

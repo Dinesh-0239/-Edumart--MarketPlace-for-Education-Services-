@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h2>Reviews for {{ service.title }}</h2>
+    <a href="{% url 'add_review' service.id %}" class="btn btn-primary">Add Review</a>
+
+    <ul class="list-group mt-3">
+        {% for review in reviews %}
+        <li class="list-group-item">
+            <strong>{{ review.client.username }}</strong> - {{ review.rating }} ★
+            <p>{{ review.comment }}</p>
+            <small>{{ review.created_at }}</small>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No reviews yet.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

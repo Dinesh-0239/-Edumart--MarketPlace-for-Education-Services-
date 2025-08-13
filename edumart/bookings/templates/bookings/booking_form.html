@@ -1,0 +1,90 @@
+{% extends "home_base.html" %}
+{% load static %}
+{% block title %} Booking Service | {{ service.title }}{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/booking_service_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container booking-container">
+    
+    <!-- 🌟 Service Information -->
+    <div class="service-info-card">
+        {% if service.image %}
+            <img src="{{ service.image.url }}" alt="{{ service.title }}" class="service-img">
+        {% endif %}
+        <div class="service-details">
+            <h2 class="service-title">{{ service.title }}</h2>
+            <p><strong>Provider:</strong> {{ service.provider.username }}</p>
+            <p><strong>Price:</strong> ₹{{ service.price }}</p>
+            <p><strong>Description:</strong> {{ service.description }}</p>
+        </div>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- 🎯 Booking Form -->
+    <form method="POST" class="booking-form" id="bookingForm">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <input type="date" name="date" id="date" class="form-control floating-input" required>
+            <label for="date" class="floating-label">Select Date</label>
+        </div>
+
+        <div class="input-group">
+            <input type="time" name="time" id="time" class="form-control floating-input" required>
+            <label for="time" class="floating-label">Select Time</label>
+        </div>
+
+        <!-- 👥 Booking Count Info -->
+        <div id="booking-count" class="info-box" style="display:none;"></div>
+        <br>
+        <button type="submit" class="btn btn-success">Confirm Booking</button>
+        <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+    const bookingCountBox = document.getElementById("booking-count");
+
+    // Restrict booking to next day onward
+    let today = new Date();
+    today.setDate(today.getDate() + 1);
+    let minDate = today.toISOString().split("T")[0];
+    dateInput.setAttribute("min", minDate);
+
+    function updateBookingCount() {
+        const date = dateInput.value;
+        const time = timeInput.value;
+        if (date && time) {
+            fetch("{% url 'get_slot_booking_count' %}?service_id={{ service.id }}&date=" + date + "&time=" + time)
+                .then(response => response.json())
+                .then(data => {
+                    bookingCountBox.style.display = "block";
+                    if (data.count === 1) {
+                        bookingCountBox.innerText = `1 client has already booked this slot.`;
+                    } else {
+                        bookingCountBox.innerText = `${data.count} clients have already booked this slot.`;
+                    }
+                });
+        } else {
+            bookingCountBox.style.display = "none";
+        }
+    }
+
+    dateInput.addEventListener("change", updateBookingCount);
+    timeInput.addEventListener("change", updateBookingCount);
+});
+</script>
+{% endblock %}

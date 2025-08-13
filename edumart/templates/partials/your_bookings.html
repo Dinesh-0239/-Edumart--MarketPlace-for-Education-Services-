@@ -1,0 +1,13 @@
+<div class="services-section">
+    <h4>Your Bookings</h4>
+    
+    {% if bookings_client.exists %}
+        <div class="service-list">
+            {% for booking in bookings_client %}
+                {% include 'partials/service_card.html' with booking=booking %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted no-services">No booked services yet.</p>
+    {% endif %}
+</div>

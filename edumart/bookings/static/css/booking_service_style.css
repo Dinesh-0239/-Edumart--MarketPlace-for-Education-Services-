@@ -1,0 +1,186 @@
+/* 🎯 Booking Page Container */
+.booking-container {
+    max-width: 750px;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+    margin: 130px auto 20px auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 🔥 Lift Effect on Hover */
+.booking-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 🌟 Service Info Card */
+.service-info-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f9fa, #eef1f6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🎨 Service Image */
+.service-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-right: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 📌 Hover Effect for Image */
+.service-img:hover {
+    transform: scale(1.05);
+}
+
+/* 📌 Service Details */
+.service-details {
+    flex-grow: 1;
+}
+
+.service-details p {
+    margin: 6px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* 🏆 Enhanced Service Title */
+.service-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0078E8;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+/* 💰 Price Styling */
+.service-details p strong {
+    color: #0078E8;
+    font-weight: 600;
+}
+
+/* 🎭 Floating Input Fields */
+.input-group {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+/* 🚀 Increased Input Height */
+.floating-input {
+    width: 100%;
+    padding: 16px 14px;
+    font-size: 18px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+/* 🎯 Floating Label */
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #999;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+/* ✨ Focus Animation */
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label {
+    top: 10px;
+    font-size: 13px;
+    color: #0078E8;
+}
+
+.floating-input:focus {
+    border-color: #0078E8;
+    box-shadow: 0px 0px 12px rgba(0, 120, 232, 0.3);
+    transform: scale(1.02);
+}
+
+/* 🎯 Submit & Cancel Buttons */
+.booking-form .btn {
+    padding: 14px 22px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+/* ✅ Confirm Booking Button */
+.booking-form .btn-success {
+    background: linear-gradient(135deg, #28a745, #218838);
+    border: none;
+}
+
+.booking-form .btn-success:hover {
+    background: linear-gradient(135deg, #218838, #1c6b30);
+    transform: scale(1.07);
+}
+
+/* ❌ Cancel Button */
+.booking-form .btn-secondary {
+    background: linear-gradient(135deg, #6c757d, #545b62);
+    border: none;
+}
+
+.booking-form .btn-secondary:hover {
+    background: linear-gradient(135deg, #545b62, #3e444a);
+    transform: scale(1.07);
+}
+/* 👥 Booking Count Info Box */
+#booking-count {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #fff5f5;
+    color: #d93025; /* Google-style red */
+    border: 1px solid #d93025;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(217, 48, 37, 0.1);
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 576px) {
+    .booking-container {
+        width: 90%;
+    }
+
+    .service-info-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .service-img {
+        margin-bottom: 12px;
+    }
+
+    .service-title {
+        font-size: 26px;
+    }
+
+    .booking-form .btn {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}

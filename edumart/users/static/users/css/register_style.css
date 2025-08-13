@@ -1,0 +1,21 @@
+@import url("base_style.css");
+
+/* Two Fields Per Row */
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Service Provider Checkbox Alignment */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-check-label {
+    margin: 0;
+    text-align: left;
+}

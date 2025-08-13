@@ -1,0 +1,42 @@
+{% extends 'home_base.html' %}
+{% load static %}
+
+{% block title %}Chat with {{ receiver.username }}{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/chat_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="chat-page-container">  <!-- Added Wrapper to prevent extra constraints -->
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="{% static 'appicon.ico' %}" alt="Profile Picture" class="chat-profile-pic">
+            <h2 class="chat-title">Chat with <span>{{ receiver.username }}</span></h2>
+        </div>
+
+        <div id="chat-box" 
+             data-booking-id="{{ booking.id }}" 
+             data-receiver-id="{{ provider.id }}" 
+             data-current-user="{{ request.user.username }}">
+            {% for message in messages %}
+                <div class="chat-message {% if message.sender == request.user %}sent{% else %}received{% endif %}">
+                    <p class="message-text">{{ message.message }}</p>
+                    <span class="timestamp">{{ message.timestamp }}</span>
+                </div>
+            {% empty %}
+                <p class="no-messages">No messages yet. Start the conversation!</p>
+            {% endfor %}
+        </div>
+
+        <form id="chat-form">
+            <input type="text" id="message-input" placeholder="Type your message..." autocomplete="off" required>
+            <button type="submit" id="send-button">Send</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "home_base.html" %}
+{% load static %}
+
+{% block title %}Booking Requests{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="notifications-section">
+    <h4>Booking Requests</h4>
+    {% if notifications %}
+        <div class="notification-list">
+            {% for booking in notifications %}
+                <div class="notification-card">
+                    {% if booking.service.image %}
+                        <img src="{{ booking.service.image.url }}" alt="{{ booking.service.title }}">
+                    {% endif %}
+                    <p><strong>Client:</strong> {{ booking.client.username }}</p>
+                    <p><strong>Service:</strong> {{ booking.service.title }}</p>
+                    <p><strong>Category:</strong> {{ booking.service.category }}</p>
+                    <p><strong>Price:</strong> ₹{{ booking.service.price }}</p>
+                    <p><strong>Requested Date:</strong> {{ booking.date }}</p>
+                    <p><strong>Requested Time:</strong> {{ booking.time }}</p>
+
+                    {% for key, count in slot_counts.items %}
+                        {% if key.0 == booking.service.id and key.1 == booking.date|stringformat:"s" and key.2 == booking.time|stringformat:"s" %}
+                            <p>
+                                <strong>Booked Slots:</strong> 
+                                {{ count }} {{ count|pluralize:"client,clients" }} already booked this slot
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+
+                    <p><strong>Status:</strong> {{ booking.status }}</p>
+
+                    <div class="notification-actions">
+                        <a href="{% url 'accept_booking' booking.id %}" class="btn btn-success">Accept</a>
+                        <a href="{% url 'reject_booking' booking.id %}" class="btn btn-danger">Reject</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">No new booking requests.</p>
+    {% endif %}
+</div>
+{% endblock %}

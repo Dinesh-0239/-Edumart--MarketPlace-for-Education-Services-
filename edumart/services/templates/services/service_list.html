@@ -1,0 +1,68 @@
+{% extends "home_base.html" %}
+{% load static %}
+
+{% block title %}Available Services | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/service_list_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="section-title">
+        {% if query %}
+            Search Results for "{{ query }}"
+        {% else %}
+            Available Services
+        {% endif %}
+    </h2>
+
+    {% if services %}
+        <div class="service-list">
+            {% for service in services %}
+            <div class="service-card">
+                <!-- Service Image -->
+                <div class="service-image">
+                    {% if service.image %}
+                        <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                    {% else %}
+                        <img src="{% static 'images/default_service.jpg' %}" alt="Default Service Image">
+                    {% endif %}
+                </div>
+
+                <!-- Service Details -->
+                <div class="service-info">
+                    <h3 class="service-title">{{ service.title }}</h3>
+                    <p class="service-category"><strong>Category:</strong> {{ service.category }}</p>
+                    <p class="service-description"><strong>Description:</strong> {{ service.description|truncatewords:20 }}</p>
+                    <p class="service-price"><strong>Price:</strong> ₹{{ service.price }}</p>
+                    <p class="service-provider"><strong>Provider:</strong> {{ service.provider.username }}</p>
+
+                    <!-- Availability Badge -->
+                    <span class="service-availability {% if service.available %}available{% else %}not-available{% endif %}">
+                        {% if service.available %}Available{% else %}Not Available{% endif %}
+                    </span>
+
+                    <!-- Buttons Section -->
+                    <div class="service-buttons">
+                        {% if service.available and request.user.is_authenticated and not request.user.is_service_provider %}
+                            <a href="{% url 'create_booking' service.id %}" class="btn btn-success">Book Now</a>
+                        {% endif %}
+                        <a href="{% url 'provider_profile' service.provider.id %}" class="btn btn-primary">View Provider Profile</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-services">
+            {% if query %}
+                No results found for "{{ query }}".
+            {% else %}
+                No services available at the moment.
+            {% endif %}
+        </p>
+    {% endif %}
+</div>
+<br><br>
+{% endblock %}

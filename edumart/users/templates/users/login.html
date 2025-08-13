@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Login | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'users/css/base_style.css' %}">
+<link rel="stylesheet" href="{% static 'users/css/login_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <!-- Branding - Logo & EduMart Name -->
+        <div class="brand-container">
+            <a href="{% url 'index' %}" class="logo-button">
+                <img src="{% static 'appicon.ico' %}" alt="EduMart Logo">
+            </a>
+            <h1>EduMart</h1>
+        </div>
+
+        <h2 class="text-center">Please Login Yourself</h2>
+
+        <!-- Display Non-Field Errors -->
+        {% if messages %}
+        <div class="alert alert-danger">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Username Field -->
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                <label for="username"><i class="fas fa-user"></i> Username</label>
+            </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+            </div>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input" id="remember_me" name="remember_me">
+            <label class="form-check-label" for="remember_me">Remember Me</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+
+        <!-- Links for Register and Forgot Password -->
+        <div class="login-links mt-3">
+            <a href="{% url 'register' %}">Create new account</a> |
+            <a href="{% url 'request_password_reset' %}">Forgot Password?</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

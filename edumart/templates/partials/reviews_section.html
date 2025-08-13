@@ -1,0 +1,16 @@
+<div class="reviews-section">
+    <h4>Reviews & Ratings</h4>
+    <div class="review-list">
+        {% for review in reviews %}
+            <div class="review-card">
+                <p><strong>Service:</strong> {{ review.service.title }}</p>
+                <p><strong>Reviewer:</strong> {{ review.user.username }}</p>
+                <p><strong>Rating:</strong> ⭐ {{ review.rating }}/5</p>
+                <p class="review-comment"><strong>Comment:</strong> {{ review.comment }}</p>
+                <p class="review-date text-muted">Reviewed on: {{ review.created_at|date:"M d, Y" }}</p>
+            </div>
+        {% empty %}
+            <p class="text-muted booked-services-title">No reviews yet.</p>
+        {% endfor %}
+    </div>
+</div>

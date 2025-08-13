@@ -1,0 +1,31 @@
+<div class="services-section">
+    <h4>Your Services</h4>
+    <div class="service-list">
+        {% for service in services %}
+            <div class="service-card">
+                {% if service.image %}
+                    <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                {% endif %}
+                <h5>{{ service.title }}</h5>
+                <p><strong>Category:</strong> {{ service.category }}</p>
+                <p><strong>Price:</strong> ₹{{ service.price }}</p>
+                <p><strong>Availability:</strong> 
+                    {% if service.available %} ✅ Available {% else %} ❌ Not Available {% endif %}
+                </p>
+                <p><strong>Created on:</strong> {{ service.created_at|date:"M d, Y" }}</p>
+                <p class="service-desc"><strong>Description: </strong>{{ service.description }}</p>
+
+                <div class="service-actions">
+                    <a href="{% url 'update_service' service.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_service' service.id %}" class="btn btn-danger"
+                        onclick="return confirm('Are you sure you want to delete this service?');">Delete</a>
+                    
+                    <!-- 🆕 View Reviews Button -->
+                    <a href="{% url 'view_service_reviews' service.id %}" class="btn btn-info">View Reviews</a>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-muted">You haven't listed any services yet.</p>
+        {% endfor %}
+    </div>
+</div>

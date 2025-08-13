@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Delete Review</h2>
+
+    <!-- 📌 Service & Provider Details -->
+    <div class="card p-3 mb-4">
+        <h5><strong>Service:</strong> {{ review.service.title }}</h5>
+        <p><strong>Provider:</strong> {{ review.service.provider.username }}</p>
+        <p><strong>Client:</strong> {{ review.client.username }}</p>
+    </div>
+
+    <div class="alert alert-warning">
+        <p>Are you sure you want to delete this review?</p>
+        <p><strong>Rating:</strong> {{ review.rating }} ⭐</p>
+        <p><strong>Comment:</strong> "{{ review.comment }}"</p>
+    </div>
+
+    <!-- ✅ Confirm & Cancel Buttons -->
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'service_reviews' review.service.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

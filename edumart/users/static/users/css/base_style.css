@@ -1,0 +1,142 @@
+/* General Body Styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: auto;
+}
+
+/* Ensure Full Page Scroll */
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+/* Centered Form Container */
+.form-container {
+    width: 90%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    border: 2px solid #e0e0e0;
+}
+
+/* Branding - Logo & Project Name */
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.brand-container img {
+    width: 50px;
+    height: auto;
+}
+
+.brand-container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0078E8;
+    margin: 0;
+}
+
+/* Form Heading */
+h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #0078E8;
+}
+
+/* Instruction Text */
+p {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+/* Fields - Full Width for Separate Rows */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Input Fields Styling */
+.form-floating {
+    width: 100%;
+}
+
+.form-floating input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #0078E8;
+    transition: all 0.3s ease;
+}
+
+.form-floating input:focus {
+    border-color: #0056B3;
+    box-shadow: 0px 0px 6px rgba(0, 123, 255, 0.5);
+}
+
+/* Labels Styling */
+.form-floating label {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Submit Buttons */
+.btn-primary, .btn-success {
+    width: 100%;
+    background-color: #0078E8;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background-color: #0056B3;
+}
+
+/* Links */
+.login-links a, .login-link a {
+    text-decoration: none;
+    color: #0078E8;
+    font-weight: 600;
+}
+
+.login-links a:hover, .login-link a:hover {
+    text-decoration: underline;
+    color: #0056B3;
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .btn-primary, .btn-success {
+        font-size: 14px;
+    }
+}

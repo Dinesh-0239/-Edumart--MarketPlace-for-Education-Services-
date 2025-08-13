@@ -1,0 +1,63 @@
+<div class="service-card">
+    <div class="service-card-header">
+        {% if booking.service.image %}
+            <img src="{{ booking.service.image.url }}" alt="{{ booking.service.title }}" class="service-img">
+        {% endif %}
+        <div class="service-info">
+            <h5>{{ booking.service.title }}</h5>
+            <p class="provider"><strong>Provider:</strong> {{ booking.service.provider.username }}</p>
+            <p class="client"><strong>Client:</strong> {{ booking.client.username }}</p>
+        </div>
+    </div>
+
+    <div class="service-card-body">
+        <p><strong>Price:</strong> ₹{{ booking.service.price }}</p>
+        <p><strong>Booked On:</strong> {{ booking.created_at|date:"d M Y, H:i A" }}</p>
+        <p><strong>Service Date:</strong> {{ booking.date }}</p>
+        <p><strong>Service Time:</strong> {{ booking.time }}</p>
+        {% if booking.status != "Cancelled" and booking.status != "Completed" %}
+            {% for key, count in slot_counts.items %}
+                {% if key.0 == booking.service.id and key.1 == booking.date|stringformat:"s" and key.2 == booking.time|stringformat:"s" %}
+                    <p>
+                        <strong>Booked Slots:</strong>
+                        {{ count }} {{ count|pluralize:"client,clients" }} already booked this slot.
+                    </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <p><strong>Status:</strong> 
+            <span class="status-{{ booking.status|lower }}">{{ booking.status }}</span>
+        </p>
+    </div>
+
+    <div class="service-card-footer">
+        <!-- ✅ Make Payment Button (Only if Approved) -->
+        {% if booking.status == "Approved" %}
+            <a href="{% url 'make_payment' booking.id %}" class="btn btn-primary payment-btn">Make Payment</a>
+        {% endif %}
+
+        <!-- ✅ Cancel Button (Allowed before Confirmation) -->
+        {% if booking.status != "Confirmed" and booking.status != "Completed" %}
+            <form action="{% url 'cancel_booking' booking.id %}" method="post" class="inline-form cancel-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger cancel-btn">Cancel</button>
+            </form>
+        {% endif %}
+
+        <!-- ✅ Chat Button (Only if Confirmed) -->
+        {% if booking.status == "Confirmed" %}
+            <a href="{% url 'chat_room' booking.id %}" class="btn btn-success chat-btn">Chat</a>
+        {% endif %}
+
+        <!-- ✅ Add Review Button (Only if Completed & User is Client) -->
+        {% if booking.status == "Completed" and request.user == booking.client %}
+            <a href="{% url 'add_review' booking.service.id %}" class="btn btn-warning review-btn">Add Review</a>
+        {% endif %}
+
+        <!-- ✅ View Reviews Button (Only if Completed & User is Provider) -->
+        {% if booking.status == "Completed" and request.user == booking.service.provider %}
+            <a href="{% url 'view_service_reviews' booking.service.id %}" class="btn btn-info review-btn">View Reviews</a>
+        {% endif %}
+    </div>
+</div>

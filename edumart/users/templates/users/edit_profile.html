@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Edit Profile | EduMart{% endblock %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'users/css/register_style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <form method="POST" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Branding - Logo & EduMart Name -->
+        <div class="brand-container">
+            <a href="{% url 'index' %}" class="logo-button">
+                <img src="{% static 'appicon.ico' %}" alt="EduMart Logo">
+            </a>
+            <h1>EduMart</h1>
+        </div>
+
+        <h2 class="text-center">Edit Your Profile</h2>
+
+        {% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Email (Non-Editable) -->
+        <div class="form-group">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" value="{{ user.email }}" disabled>
+                <label>Email (Cannot be changed)</label>
+            </div>
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="{{ user.username }}" required>
+                <label for="username">Username</label>
+            </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="form-group mb-3">
+            <div class="form-floating">
+                <textarea class="form-control" name="bio" id="bio" placeholder="Bio">{{ user.bio }}</textarea>
+                <label for="bio">Bio</label>
+            </div>
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="form-group profile-picture-container">
+            <label for="profile_picture">Profile Picture</label>
+            <input type="file" class="form-control" name="profile_picture" id="profile_picture">
+        </div>
+
+        <!-- Submit Button -->
+        <button class="btn btn-primary w-100" type="submit">Save Changes</button>
+
+        <!-- Back to Profile Link -->
+        <div class="text-center mt-3">
+            <a href="{% url 'profile' %}">Back to Profile</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

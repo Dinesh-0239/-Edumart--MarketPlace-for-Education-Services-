@@ -1,0 +1,10 @@
+<div class="services-section">
+    <h4>Your Completed Services</h4>
+    <div class="service-list">
+        {% for booking in provider_completed_services %}
+            {% include 'partials/service_card.html' with booking=booking %}
+        {% empty %}
+            <p class="text-muted">No completed services yet.</p>
+        {% endfor %}
+    </div>
+</div>
